@@ -1,0 +1,32 @@
+@import url("https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css");
+
+// Use rem instead of px to be prepared for responsive design
+
+$small-size: 0.6rem;
+// custom classes
+
+.personalized-margin {
+  margin-right: $small-size;
+}
+.checkbox-group {
+  display: inline-flex;
+  column-gap: $small-size;
+  align-items: flex-start;
+}
+// override bootstrap classes
+
+.container {
+  padding: 1rem 3rem 0rem 5rem;
+}
+.form-check {
+  display: inline-flex;
+  column-gap: $small-size;
+  align-items: self-end;
+}
+.row {
+  margin-bottom: 1.5rem;
+}
+h1 {
+  color: #5cb85c;
+  margin-bottom: 2rem;
+}

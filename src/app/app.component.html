@@ -1,0 +1,67 @@
+<div class="container">
+  <h1>Convertisseur</h1>
+
+  <div class="row">
+    <label for="realExchangeRate" class="personalized-margin"
+      >Taux de change réel</label
+    >
+    <input name="realExchangeRate" disabled [(ngModel)]="exchangeRate" />
+  </div>
+
+  <div class="row">
+    <div class="form-check">
+      <div class="checkbox-group">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          (click)="forceExchangeRate()"
+          id="forcedExchangeRate"
+        />
+        <label for="forcedExchangeRate"> Personnaliser taux de change</label>
+      </div>
+      <input
+        type="number"
+        placeholder="Tapez un taux de change"
+        [disabled]="!forcedExchangeRateEnabled"
+        [(ngModel)]="forcedExchangeRateValue"
+        (ngModelChange)="updateValues()"
+        title="Notez que votre valeur n'est prise en consideration que si le taux saisi ne varie pas plus que 2% par rapport taux reel"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <label for="valueInEur" class="form-check-label personalized-margin">
+       Valeur en {{ fromEuroToDollar ? "EUR" : "USD" }}
+      </label>
+
+    <input
+      type="number"
+      id="valueInEur"
+      class="personalized-margin"
+      [(ngModel)]="euroValue"
+      (ngModelChange)="updateValues()"
+      [disabled]="!fromEuroToDollar"
+    />
+
+    <button
+      (click)="onSwitchClick()"
+      type="button"
+      class="btn btn-success personalized-margin"
+    >
+      Switch
+    </button>
+    <label for="valueInUsd" class="form-check-label personalized-margin"
+      >Valeur en {{ fromEuroToDollar ? "USD" : "EUR" }}</label
+    >
+
+    <input
+      id="valueInUsd"
+      type="number"
+      [placeholder]="fromEuroToDollar ? 'USD' : 'EUR'"
+      [(ngModel)]="usdValue"
+      (ngModelChange)="updateValues()"
+      [disabled]="fromEuroToDollar"
+    />
+  </div>
+</div>
