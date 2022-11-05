@@ -28,6 +28,7 @@ export class AppComponent implements OnDestroy {
     // we can either execute this code in the contsructor or ngOnInit
     //  we chose contructor since it's executed first
     this.intervallSource.pipe(takeUntil(this.destroy$)).subscribe(() => {
+      // applied rule here: Math.random() * (max - min) + min;
       this.exchangeRate = parseFloat(
         (this.exchangeRate + Math.random() * 0.1 - 0.05).toFixed(2)
       );
